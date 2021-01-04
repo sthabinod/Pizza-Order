@@ -1,0 +1,40 @@
+{% extends '../base.html' %}
+
+{% block 'body' %}
+{% load static %}
+<div style="background-color:darkslategrey;">
+
+<div style="margin-top:-35px;" id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+  </ol>
+  <div style="" class="carousel-inner">
+
+    <div class="carousel-item active">
+       <h2 style="position: relative;top:50px;left:10px;color:white;">Welcome to Pizza Home. <a style="color:darkgoldenrod;margin-left: 350px;" href="{% url 'order' %}">order now</a></h2>
+      <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg" class="d-block w-100" alt="Pzza image">
+    </div>
+    <div class="carousel-item">
+       <h2 style="position: relative;top:100px;left:10px;color:white;">Welcome to Pizza Home. <a style="color:darkgoldenrod;" href="{% url 'order' %}">order now</a></h2>
+       <img src="https://wallpapercave.com/wp/wc1813155.jpg" class="d-block w-100" alt="Pzza image">
+    </div>
+    <div class="carousel-item">
+       <h2 style="position: relative;top:100px;left:10px;color:white;">Welcome to Pizza Home. <a style="color:darkgoldenrod;" href="{% url 'order' %}">order now</a></h2>
+      <img src="https://i.pinimg.com/564x/b3/15/5d/b3155d8da13e8ffd2ea5c6e8a05d043b.jpg" class="d-block w-100" alt="Pzza image">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+
+</div>
+
+{% endblock %}

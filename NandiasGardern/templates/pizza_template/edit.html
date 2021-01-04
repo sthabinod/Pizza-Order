@@ -1,0 +1,17 @@
+{% extends '../base.html' %}
+
+{% block 'body' %}
+<h3>Edit Now</h3>
+
+
+<form action="{% url 'pizzas_edit' pizza.id %}" method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="1" value="{{ pizza.topping1 }}">
+    <input type="text" placeholder="2" value="{{ pizza.topping2 }}">
+    <select name="" id="">
+        <option value="{{pizza.size}}">{{pizza.size}}</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends '../base.html' %}
+
+{% block 'body' %}
+
+<div class="container">
+    <h1>Order a pizza</h1>
+
+<p><i>{{ note }}</i></p>
+ <form action="{% url 'order' %}" method="POST" novalidate>
+    {% csrf_token %}
+
+     {% load widget_tweaks %}
+
+        {% for field in pizzaform %}
+     <div class="form-group">
+            {{ field.label_tag }}
+            {% render_field field class="form-control" %}
+     </div>
+
+        {% endfor %}
+
+
+    <input type="submit" value="Order Pizza">
+</form>
+
+
+<br>
+<br>
+<h3>How many pizzas do you want?</h3>
+<form action="{% url 'pizzas'  %}" method="get">
+    {{ multiple_form }}
+    <input type="submit" value="Get Pizzas">
+</form>
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+<!-- <form style="display: flex;flex-direction: column; justify-content: space-around;" action="{% url 'order' %}" method="post">-->
+<!--     {% csrf_token %}-->
+<!--     <div>-->
+<!--        <label for="pizza-name">Pizza name</label>-->
+<!--         <input name="name" type="text" placeholder="Pizza Name">-->
+<!--     </div>-->
+
+<!--     <div>-->
+<!--        <label for="pizza-name">Pizza name</label>-->
+<!--        <input name="name" type="text" placeholder="Pizza Name">-->
+<!--     </div>-->
+
+<!--     <div>-->
+<!--        <label for="pizza-name">Size</label>-->
+<!--        <select id="size" name="size">-->
+<!--            <option value="small">Small</option>-->
+<!--            <option value="Medium">Medium</option>-->
+<!--            <option value="Large">Large</option>-->
+<!--        </select>-->
+<!--     </div>-->
+<!--    <div>-->
+<!--     <input type="submit" value="Order">-->
+<!--    </div>-->
+
+<!-- </form>-->

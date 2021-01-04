@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Order Pizza Now</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #238a44">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'index' %}">Nandia's Garden</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+       {% if user.is_authenticated %}
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'order' %}">Order Pizza</a>
+        </li>
+
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'list_pizza' %}">View my orders</a>
+        </li>
+
+         <li class="nav-item active">
+          <a class="nav-link" href="{% url 'rules' %}">Rules</a>
+        </li>
+
+
+      </ul>
+
+
+
+    {% else %}
+    </div>
+       <a style="float: right;color:white;" class="nav-link" href="{% url 'login' %}">Login</a>
+
+
+          <a style="float: right;color:white;" class="nav-link" href="{% url 'register' %}">Register</a>
+
+  </div>
+
+
+      {% endif %}
+
+    {% if user.is_authenticated %}
+  <div>
+
+     <a style="float:right;margin-left: 20px;color:white;" href="{% url 'logout' %}">Logout</a>
+    <a style="margin-left: 499px;color: white;text-decoration: none;" href="">Welcome {{user}}</a>
+  </div>
+
+    {% endif %}
+
+
+
+
+
+
+</nav>
+  {% load static %}
+
+{% block 'body' %}
+
+{% endblock %}
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</body>
+</html>

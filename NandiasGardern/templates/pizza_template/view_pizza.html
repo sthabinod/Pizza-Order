@@ -1,0 +1,27 @@
+
+{% extends '../base.html' %}
+
+{% block 'body' %}
+
+<div style="margin-top: 20px;" class="container"><h3>Your orders<br> </h3>
+
+    <div class="row">
+         {% for pizza in object_list %}
+        <div style="margin-top:20px;" class="col-4">
+
+                <div class="card" style="width: 18rem;">
+                <h3><span style="background: #27ca27;border-radius: 20px;font-size:15px;padding:9px;color:white;">{{pizza.size}}</span>Pizza</h3>
+                <div class="card-body">
+                    <h5 class="card-title">Ingredient 1: {{pizza.topping1}}</h5>
+                    <h5 class="card-title">Ingredient 2: {{pizza.topping2}}</h5>
+                    <a style="background-color:#a70e0e;float:right;" href="{% url 'pizzas_edit' pizza.id %}" class="btn btn-primary">Delete</a>
+                    <a style="background-color:#045304;float: right;" href="{% url 'pizzas_edit' pizza.id %}" class="btn btn-primary">Edit</a>
+
+                </div>
+                </div>
+
+        </div>
+         {% endfor %}
+    </div>
+</div>
+{% endblock %}
